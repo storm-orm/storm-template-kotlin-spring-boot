@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: storm-app
+  # H2 on disk, so the application runs with nothing installed. For PostgreSQL, start the database
+  # with `docker compose up -d` and run with `--spring.profiles.active=postgres`.
+  datasource:
+    url: jdbc:h2:file:./data/app;AUTO_SERVER=TRUE
+    username: sa
+    password: ""
+  threads:
+    virtual:
+      enabled: true
+
+# Every statement Storm runs is logged at DEBUG under st.orm.sql, with its parameters at TRACE.
+logging:
+  level:
+    st.orm.sql: INFO

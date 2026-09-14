@@ -1,0 +1,11 @@
+# PostgreSQL for the optional postgres setup; see the README. The application
+# runs on H2 without it.
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - "5432:5432"
